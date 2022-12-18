@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup,find_packages
 from typing import List
 
 
@@ -18,7 +18,7 @@ def get_requirements_list()->List[str]:
     return this function will return a list of requirements packages
     """
     with open(REQUIREMENT_FILE_NAME) as requirement_file:
-        return requirement_file.readlines()
+        return requirement_file.readlines().remove("-e .")
 
 
 setup(
@@ -26,7 +26,7 @@ setup(
     version=VERSION,
     author=AUTHOR,
     description=DESCRIPTION,
-    packages=PACKAGES,
+    packages=find_packages(),
     install_requires=get_requirements_list()
 )
 
