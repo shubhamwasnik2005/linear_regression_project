@@ -15,7 +15,7 @@ def get_requirements_list()->List[str]:
     """
     Descriptions: This function is going to return list of requirements mentioned in requirements.txt
 
-    return this function will return a list of requirements packages
+    return: this function will return a list of requirements packages
     """
     with open(REQUIREMENT_FILE_NAME) as requirement_file:
         return requirement_file.readlines().remove("-e .")
